@@ -5,11 +5,11 @@ from trytond.pool import PoolMeta
 from trytond.pyson import Eval
 
 __all__ = ['Purchase']
-__metaclass__ = PoolMeta
 
 
 class Purchase:
     __name__ = 'purchase.purchase'
+    __metaclass__ = PoolMeta
 
     @classmethod
     def __setup__(cls):

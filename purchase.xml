@@ -5,7 +5,6 @@ copyright notices and license terms. -->
     <data>
         <record model="ir.ui.view" id="purchase_view_form">
             <field name="model">purchase.purchase</field>
-            <field name="type">form</field>
             <field name="inherit" ref="purchase.purchase_view_form"/>
             <field name="name">purchase_form</field>
         </record>
