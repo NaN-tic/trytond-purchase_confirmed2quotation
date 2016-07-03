@@ -18,11 +18,11 @@ Create database::
 
 Install purchase::
 
-    >>> Module = Model.get('ir.module.module')
+    >>> Module = Model.get('ir.module')
     >>> purchase_module, = Module.find([
     ...     ('name', '=', 'purchase_confirmed2quotation')])
     >>> purchase_module.click('install')
-    >>> Wizard('ir.module.module.install_upgrade').execute('upgrade')
+    >>> Wizard('ir.module.install_upgrade').execute('upgrade')
 
 Create company::
 
