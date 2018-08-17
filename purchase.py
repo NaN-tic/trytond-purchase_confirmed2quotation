@@ -7,9 +7,8 @@ from trytond.pyson import Eval
 __all__ = ['Purchase']
 
 
-class Purchase:
+class Purchase(metaclass=PoolMeta):
     __name__ = 'purchase.purchase'
-    __metaclass__ = PoolMeta
 
     @classmethod
     def __setup__(cls):

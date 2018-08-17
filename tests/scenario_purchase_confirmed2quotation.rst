@@ -127,7 +127,7 @@ Purchase 5 products::
     >>> purchase.click('quote')
     >>> purchase.click('confirm')
     >>> purchase.state
-    u'confirmed'
+    'confirmed'
     >>> purchase.click('to_quote')
     >>> purchase.state
-    u'quotation'
+    'quotation'
