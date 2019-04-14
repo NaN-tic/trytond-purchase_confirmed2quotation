@@ -46,7 +46,6 @@ Create chart of accounts::
     >>> Account = Model.get('account.account')
     >>> Journal = Model.get('account.journal')
     >>> cash, = Account.find([
-    ...         ('kind', '=', 'other'),
     ...         ('name', '=', 'Main Cash'),
     ...         ('company', '=', company.id),
     ...         ])
