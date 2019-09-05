@@ -10,6 +10,6 @@ copyright notices and license terms. -->
     <xpath
         expr="/form/notebook/page[@id='purchase']/group/group/button[@name='process']"
         position="before">
-        <button name="to_quote" string="Quote" icon="tryton-go-previous"/>
+        <button name="to_quote" string="Quote" icon="tryton-back"/>
     </xpath>
 </data>
