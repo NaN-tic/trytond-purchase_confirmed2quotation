@@ -122,8 +122,8 @@ Purchase 5 products::
 
 Set has_worker = True to ensure purchase is not processed automatically on confirm::
 
-    >>> from trytond.ir import queue
-    >>> queue.has_worker = True
+    >>> from trytond.ir import queue_
+    >>> queue_.has_worker = True
 
 Confirm and try to go back to quote::
 
