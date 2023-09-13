@@ -118,6 +118,7 @@ Purchase 5 products::
     >>> purchase_line = purchase.lines.new()
     >>> purchase_line.product = product
     >>> purchase_line.quantity = 2.0
+    >>> purchase_line.unit_price = product.cost_price
     >>> purchase.click('quote')
 
 Set has_worker = True to ensure purchase is not processed automatically on confirm::
