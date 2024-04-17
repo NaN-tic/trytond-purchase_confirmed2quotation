@@ -12,8 +12,7 @@ copyright notices and license terms. -->
         <record model="ir.model.button" id="purchase_to_quote_button">
             <field name="name">to_quote</field>
             <field name="string">Quote</field>
-            <field name="model"
-                search="[('model', '=', 'purchase.purchase')]"/>
+            <field name="model">purchase.purchase</field>
         </record>
         <record model="ir.model.button-res.group"
             id="purchase_to_quote_button_group_purchase">
