@@ -42,11 +42,6 @@ class Test(unittest.TestCase):
         accounts = get_accounts(company)
         revenue = accounts['revenue']
         expense = accounts['expense']
-        Account = Model.get('account.account')
-        cash, = Account.find([
-            ('name', '=', 'Main Cash'),
-            ('company', '=', company.id),
-        ])
 
         # Create parties
         Party = Model.get('party.party')
