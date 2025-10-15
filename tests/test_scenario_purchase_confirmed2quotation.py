@@ -1,5 +1,6 @@
 import unittest
 from decimal import Decimal
+from datetime import timedelta
 
 from proteus import Model
 from trytond.ir import queue_
@@ -11,6 +12,7 @@ from trytond.modules.account_invoice.tests.tools import \
 from trytond.modules.company.tests.tools import create_company, get_company
 from trytond.tests.test_tryton import drop_db
 from trytond.tests.tools import activate_modules
+from trytond import config as config_
 
 
 class Test(unittest.TestCase):
@@ -24,6 +26,9 @@ class Test(unittest.TestCase):
         super().tearDown()
 
     def test(self):
+
+        # Set has_worker = True to ensure purchase is not processed automatically on confirm
+        config_.set('queue', 'worker', 'True')
 
         # Install purchase
         activate_modules('purchase_confirmed2quotation')
@@ -96,6 +101,11 @@ class Test(unittest.TestCase):
         payment_term.lines.append(payment_term_line)
         payment_term.save()
 
+        Configuration = Model.get('purchase.configuration')
+        purchase_config = Configuration(1)
+        purchase_config.purchase_process_after = timedelta(hours=2, minutes=30)
+        purchase_config.save()
+
         # Purchase 5 products
         Purchase = Model.get('purchase.purchase')
         purchase = Purchase()
@@ -107,9 +117,6 @@ class Test(unittest.TestCase):
         purchase_line.quantity = 2.0
         purchase_line.unit_price = product.cost_price
         purchase.click('quote')
-
-        # Set has_worker = True to ensure purchase is not processed automatically on confirm
-        queue_.has_worker = True
 
         # Confirm and try to go back to quote
         purchase.click('confirm')
